@@ -1,0 +1,41 @@
+﻿<Window x:Class="Wpf.NewMessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf"
+        mc:Ignorable="d"
+        Title="Add New Message" Height="300" Width="300">
+    <Grid>
+        <StackPanel Background="#fff">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock FontWeight="Bold" Foreground="#01579B"  Grid.Column="0" Grid.Row="0" Text="Subject:"/>
+                <TextBox Foreground="#01579B" Grid.Column="1" Height="25" Grid.Row="0" x:Name="Textbox_Subject"/>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock FontWeight="Bold" Foreground="#01579B" Grid.Column="0" Text="To"/>
+                <ListBox FontWeight="Bold" BorderBrush="Black" Grid.Column="1" VerticalContentAlignment="Stretch" IsEnabled="False">
+                    <TextBox Text="{Binding recp}"/>
+                </ListBox>
+                <Button Margin="3,0,0,0" Padding="5" Foreground="#fff" Background="#03A9F4" Grid.Column="3" x:Name="AddNewContactBtn" Click="AddNewContact_Click">Add..</Button>
+            </Grid>
+            <TextBox Margin="10" Height="70" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="en-US" x:Name="Textbox_Body"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1"  Margin="5" Padding="5" Width="50" Foreground="#fff" Background="#03A9F4" x:Name="DoneBtn" Click="DoneBtn_Click">Done</Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

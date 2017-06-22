@@ -1,0 +1,75 @@
+﻿<Window x:Class="Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf"
+        mc:Ignorable="d"
+        Title="My Messege App" Height="500" Width="750">
+
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Grid.Row="0" Padding="5" Width="50" Foreground="#fff" Background="#03A9F4" Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="NewMessageBtn" Click="NewMessage_Click"/>
+                    <Button Grid.Column="1" Grid.Row="0"  Padding="5" Width="50" Foreground="#fff" Background="#03A9F4" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="MessageDeleteBtn" Click="MessageDelete_Click"/>
+                </Grid>
+                <ListBox Name="DisplayMessageBox"  Margin="10" ItemsSource="{Binding MessageServiceHandaler.MessageList}" SelectionMode="Extended" SelectionChanged="selectedMessage">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock FontSize="13" Text="{Binding Subject}" />
+                                <TextBlock FontSize="9" Text="{Binding Time}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  Grid.Column="0" Grid.Row="0" FontWeight="Bold" Foreground="#01579B" Text="Subject:"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" TextAlignment="Left" x:Name="Textbox_Subject"/>
+                </Grid>
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="8*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Foreground="#01579B" Text="To"/>
+                    <ListBox  Grid.Column="1" Grid.Row="0" Name="DisplayRecp"  Margin="10" ItemsSource="{Binding RecpList}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock FontSize="13" Text="{Binding Name}" />
+                                    <TextBlock FontSize="9" Text="{Binding Email}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Foreground="#01579B" Text="Date:"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" x:Name="Textbox_date"/>
+                </Grid>
+                <TextBlock x:Name="Textbox_content"/>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

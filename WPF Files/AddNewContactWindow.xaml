@@ -1,0 +1,36 @@
+﻿<Window x:Class="Wpf.AddNewContactWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf"
+        mc:Ignorable="d"
+        Title="Add New Contact" Height="300" Width="300">
+    <Grid>
+        <StackPanel>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock  Grid.Column="0" Grid.Row="0" FontWeight="Bold" Foreground="#01579B" Text="Contact Name:"/>
+                <TextBox Grid.Column="1" Grid.Row="0" TextAlignment="Left" x:Name="Textbox_Subject"/>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock  Grid.Column="0" Grid.Row="0" FontWeight="Bold" Foreground="#01579B" Text="Contact Email:"/>
+                <TextBox Grid.Column="1" Grid.Row="0" TextAlignment="Left" x:Name="Textbox_Email"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Margin="10" Padding="5" Width="50" Foreground="#fff" Background="#03A9F4" x:Name="AddContactBtn" Click="AddContact_Click">Add</Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
